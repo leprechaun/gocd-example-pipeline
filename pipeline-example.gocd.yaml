@@ -21,7 +21,7 @@ pipelines:
                   - "hello world"
 
   gocd-example-pipeline-build:
-    group: build
+    group: gocd-example-pipeline
     label_template: "${test}"
     locking: "on"
     materials:
