@@ -15,5 +15,7 @@ pipelines:
     stages:
       - test-one:
           tasks:
-            - script: |
-                echo hello world
+            - exec:
+                command: echo
+                args:
+                  - "hello world"
