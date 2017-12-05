@@ -17,5 +17,5 @@ pipelines:
           tasks:
             - exec:
                 command: echo
-                args:
+                arguments:
                   - "hello world"
