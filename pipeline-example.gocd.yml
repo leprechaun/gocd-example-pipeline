@@ -1,0 +1,19 @@
+pipelines:
+  gocd-example-pipeline-test:
+    group: gocd-example-pipeline
+    label_template: "${git[:8]}"
+    locking: "on"
+    timer:
+      spec: "* * * * * ? *"
+      only_on_changes: yes
+    materials:
+      git:
+        git: https://github.com/leprechaun/gocd-example-pipeline.git
+        branch: master
+        auto_update: true
+        shallow_clone: true
+    stages:
+      - test-one:
+          tasks:
+            - script: |
+                echo hello world
