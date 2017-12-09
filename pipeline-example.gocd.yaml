@@ -35,3 +35,13 @@ pipelines:
                 command: echo
                 arguments:
                   - hello world
+            - exec:
+                command: kubectl
+                arguments:
+                  - get
+                  - pods
+                  - --all-namespaces
+            - exec:
+                command: docker
+                arguments:
+                  - ps
