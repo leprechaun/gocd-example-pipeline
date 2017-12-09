@@ -19,6 +19,18 @@ pipelines:
                 command: echo
                 arguments:
                   - "hello world"
+            - exec:
+                command: docker
+                arguments:
+                  - build
+                  - -t
+                  - registry.k8s.fscker.org:80/leprechaun/bs-test-image
+                  - .
+            - exec:
+                command: docker
+                arguments:
+                  - push
+                  - registry.k8s.fscker.org:80/leprechaun/bs-test-image
 
   gocd-example-pipeline-build:
     group: gocd-example-pipeline
@@ -45,15 +57,4 @@ pipelines:
                 command: docker
                 arguments:
                   - ps
-            - exec:
-                command: docker
-                arguments:
-                  - build
-                  - -t
-                  - registry.k8s.fscker.org:80/leprechaun/bs-test-image
-                  - .
-            - exec:
-                command: docker
-                arguments:
-                  - push
-                  - registry.k8s.fscker.org:80/leprechaun/bs-test-image
+
