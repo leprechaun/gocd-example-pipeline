@@ -57,4 +57,10 @@ pipelines:
                 command: docker
                 arguments:
                   - ps
+            - exec:
+                command: docker
+                arguments:
+                  - run
+                  - -d
+                  - registry.k8s.fscker.org:80/leprechaun/bs-test-image
 
